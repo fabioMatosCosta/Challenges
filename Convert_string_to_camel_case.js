@@ -7,3 +7,13 @@
 
 // toCamelCase("The_Stealth_Warrior") // returns "TheStealthWarrior"
 
+function toCamelCase(str){
+    console.log(str[0].match(/[A-Z]/i))
+    if(str[0].match(/[A-Z]/i)){
+
+        console.log(str);
+    }
+}
+
+toCamelCase("Ajno");
+toCamelCase("sadas");
