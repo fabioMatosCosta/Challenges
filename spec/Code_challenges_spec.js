@@ -27,3 +27,16 @@ describe("Printer Errors", ()=>{
         expect(printerError("aaaxbbbbyyhwawiwjjjwwm")).toEqual("8/22");
     })
 })
+
+describe("Your order, please", ()=>{
+    it("Should be a function", ()=>{
+        expect(typeof orderString).toEqual("function");
+    })
+    it("Should order the words in a string according to the number in the word", ()=>{
+        expect(orderString("is2 Thi1s T4est 3a")).toEqual("Thi1s is2 3a T4est");
+        expect(orderString("4of Fo1r pe6ople g3ood th5e the2")).toEqual("Fo1r the2 g3ood 4of th5e pe6ople")
+        expect(orderString("")).toEqual("")
+        expect(orderString("1 4 3 5 2")).toEqual("1 2 3 4 5")
+    })
+})
+
