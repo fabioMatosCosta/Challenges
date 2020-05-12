@@ -56,3 +56,15 @@ describe("Find the divisors", ()=>{
     })
 });
 
+describe("Descending Order", ()=>{
+    it("Should be a function", ()=>{
+        expect(typeof descendingOrder).toEqual("function");
+    })
+    it("Should return descending order numbers", ()=>{
+        expect(descendingOrder(0)).toEqual(0);
+        expect(descendingOrder(1)).toEqual(1);
+        expect(descendingOrder(121)).toEqual(211);
+        expect(descendingOrder(12345678)).toEqual(87654321);
+        expect(descendingOrder(3425178)).toEqual(8754321);
+    })
+})
