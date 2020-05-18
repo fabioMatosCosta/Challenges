@@ -202,3 +202,18 @@ function breakCamelCase(str){
 // maskify("Skippy")                                   == "##ippy"
 // maskify("Nananananananananananananananana Batman!") == "####################################man!"
 
+function maskify(cc) {
+    let arr = []
+    if (cc.length <= 4 || cc === "") {
+        return cc;
+    } else {
+        for (let i = cc.length; i> -1; i--){
+            if(i > cc.length -5) {
+                arr.push(cc[i])
+            } else {
+                arr.push("#");
+            }
+        }
+        return (arr.reverse().join(""))
+    }
+}

@@ -78,12 +78,12 @@ describe("Consecutive Ducks", ()=>{
     })
     it("Should return true if num can be expressed as a sum of two or more consecutive positive numbers", ()=>{
         for(let i = 0; i < values_true.length; i++){
-            expect(consecutiveDucks(values_true[i])).toEqual(true)
+            expect(consecutiveDucks(values_true[i])).toEqual(true);
         }
     })
     it("Should return false if num cannot be expressed as a sum of two or more consecutive positive numbers", ()=>{
         for(let i = 0; i < values_false.length; i++){
-            expect(consecutiveDucks(values_false[i])).toEqual(false)
+            expect(consecutiveDucks(values_false[i])).toEqual(false);
         }
     })
 })
@@ -95,5 +95,22 @@ describe("Break camelCase", ()=>{
     it("Should add a space between a lowercased letter and a uppercased letter", ()=>{
         expect(breakCamelCase("camelCase")).toEqual("camel Case");
         expect(breakCamelCase("camelCasingTest")).toEqual("camel Casing Test");
+    })
+})
+
+describe("Credit Card Mask", ()=>{
+    it("Should be a function", ()=>{
+        expect(typeof maskify).toEqual("function");
+    })
+    it("Should return the same string if the length is less than 4 or if it's an empty string", ()=>{
+        expect(maskify("1")).toEqual("1");
+        expect(maskify("")).toEqual("");
+        expect(maskify("nana")).toEqual("nana");
+    })
+    it("Should replace all the caracters on the string with # expect the last 4", ()=>{
+        expect(maskify("4556364607935616")).toEqual("############5616");
+        expect(maskify("Skippy")).toEqual("##ippy");
+        expect(maskify("Nananananananananananananananana Batman!")).toEqual("####################################man!");
+        expect(maskify("64607935616")).toEqual("#######5616");
     })
 })
