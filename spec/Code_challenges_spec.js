@@ -114,3 +114,39 @@ describe("Credit Card Mask", ()=>{
         expect(maskify("64607935616")).toEqual("#######5616");
     })
 })
+
+describe("Watermelon", ()=>{
+    it("Should be a function", ()=>{
+        expect(typeof divide).toEqual("function")
+    })
+    it("Should return true if the weight can be divided into even numbers", ()=>{
+        expect(divide(4)).toEqual(true);
+        expect(divide(10)).toEqual(true);
+        expect(divide(32)).toEqual(true);
+        expect(divide(88)).toEqual(true);
+    })
+    it("Should return false if the weight cannot be divided into even numbers", ()=>{
+        expect(divide(2)).toEqual(false);
+        expect(divide(5)).toEqual(false);
+        expect(divide(67)).toEqual(false);
+        expect(divide(99)).toEqual(false);
+    })
+})
+
+let handicap1 = [[18, 20],[45, 2],[61, 12],[37, 6],[21, 21],[78, 9]];
+let category1 = ["Open", "Open", "Senior", "Open", "Open", "Senior"];
+let handicap2 = [[45, 12],[55,21],[19, -2],[104, 20]];
+let category2 = ["Open", "Senior", "Open", "Senior"];
+let handicap3 = [[3, 12],[55,1],[91, -2],[54, 23]];
+let category3 = ['Open', 'Open', 'Open', 'Open'];
+
+describe("Categorize New Member", ()=>{
+    it("Should be a function", ()=>{
+        expect(typeof openOrSenior).toEqual("function")
+    })
+    it("Should return an array with Open or Senior, if the first value on the array is greater or equal than 55 and the second value is greater than 7", ()=>{
+        expect(openOrSenior(handicap1)).toEqual(category1);
+        expect(openOrSenior(handicap2)).toEqual(category2);
+        expect(openOrSenior(handicap3)).toEqual(category3);
+    })
+})

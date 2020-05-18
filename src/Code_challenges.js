@@ -217,3 +217,64 @@ function maskify(cc) {
         return (arr.reverse().join(""))
     }
 }
+
+//*Watermelon
+
+// It's too hot, and they can't even…
+// One hot summer day Pete and his friend Billy decided to buy watermelons. They chose the biggest crate.
+// They rushed home, dying of thirst, and decided to divide their loot, however they faced a hard problem.
+// Pete and Billy are great fans of even numbers, that's why they want to divide the number of watermelons 
+// in such a way that each of the two parts consists of an even number of watermelons. However, it is not obligatory 
+// that the parts are equal.
+// Example: the boys can divide a stack of 8 watermelons into 2+6 melons, or 4+4 melons.
+// The boys are extremely tired and want to start their meal as soon as possible, that's why you should help them and find out,
+//  whether they can divide the fruits in the way they want. For sure, each of them should get a part of positive weight.
+// Task
+// Given an integral number of watermelons w (1 ≤ w ≤ 100; 1 ≤ w in Haskell), check whether Pete and Billy can divide the melons 
+// so that each of them gets an even amount.
+
+// Examples
+// divide(2) === false // 2 = 1 + 1
+// divide(3) === false // 3 = 1 + 2
+// divide(4) === true  // 4 = 2 + 2
+// divide(5) === false // 5 = 2 + 3
+// divide(6) === true  // 6 = 2 + 4
+
+function divide(weight){
+    if (weight % 2 === 0 && weight > 2){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
+//*Categorize New Member
+
+// The Western Suburbs Croquet Club has two categories of membership, Senior and Open.
+//  They would like your help with an application form that will tell prospective members which category they will be placed.
+// To be a senior, a member must be at least 55 years old and have a handicap greater than 7. In this croquet club,
+//  handicaps range from -2 to +26; the better the player the lower the handicap.
+// Input
+// Input will consist of a list of lists containing two items each. Each list contains information for a single potential member. 
+// Information consists of an integer for the person's age and an integer for the person's handicap.
+// Note for F#: The input will be of (int list list) which is a List<List>
+// Example Input
+// [[18, 20],[45, 2],[61, 12],[37, 6],[21, 21],[78, 9]]
+// Output
+// Output will consist of a list of string values (in Haskell: Open or Senior) 
+// stating whether the respective member is to be placed in the senior or open category.
+// Example Output
+// ["Open", "Open", "Senior", "Open", "Open", "Senior"]
+
+function openOrSenior(data){
+    let arr = [];
+    for (let i= 0; i<data.length; i++){
+        if (data[i][0] >= 55 && data[i][1] > 7){
+            arr.push('Senior');
+        } else {
+            arr.push('Open');
+        }
+    }
+    return arr;
+}
