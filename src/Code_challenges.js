@@ -158,3 +158,47 @@ function descendingOrder(n){
     let str = n.toString().split("").sort(function(a, b){return b-a});;
     return Number(str.join(""))
 }
+
+//*Consecutive Ducks
+
+//Positive integers have so many gorgeous features. Some of them could be expressed as a sum of two or more consecutive positive numbers.
+// Consider an Example :
+// 10 , could be expressed as a sum of 1 + 2 + 3 + 4.
+
+function consecutiveDucks(num){
+    return (((num & (num - 1)) != 0) && num != 0)
+}
+
+//*Break camelCase
+
+// Complete the solution so that the function will break up camel casing, using a space between words.
+// Example
+// solution("camelCasing")  ==  "camel Casing"
+
+function breakCamelCase(str){
+    let brokeCamelCaseStr = "";
+    for(let i=0; i<str.length; i++){
+        brokeCamelCaseStr += `${str[i]}`
+        if(str[i] > "Z" && str[i+1]<="Z"){
+            brokeCamelCaseStr += ` `
+        }
+    }
+    return brokeCamelCaseStr
+}
+
+
+//*Credit Card Mask
+
+// Usually when you buy something, you're asked whether your credit card number, phone number or answer 
+// to your most secret question is still correct. However, since someone could look over your shoulder, you 
+// don't want that shown on your screen. Instead, we mask it.
+// Your task is to write a function maskify, which changes all but the last four characters into '#'.
+// Examples
+// maskify("4556364607935616") == "############5616"
+// maskify(     "64607935616") ==      "#######5616"
+// maskify(               "1") ==                "1"
+// maskify(                "") ==                 ""
+// "What was the name of your first pet?"
+// maskify("Skippy")                                   == "##ippy"
+// maskify("Nananananananananananananananana Batman!") == "####################################man!"
+

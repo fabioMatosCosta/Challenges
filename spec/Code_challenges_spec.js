@@ -68,3 +68,32 @@ describe("Descending Order", ()=>{
         expect(descendingOrder(3425178)).toEqual(8754321);
     })
 })
+
+let values_true = [69,57,6,13,91,75,13,522,974,1011,17209]
+let values_false = [8,16,32,512,1024,32768]
+
+describe("Consecutive Ducks", ()=>{
+    it("Should be a function", ()=>{
+        expect(typeof consecutiveDucks).toEqual("function");
+    })
+    it("Should return true if num can be expressed as a sum of two or more consecutive positive numbers", ()=>{
+        for(let i = 0; i < values_true.length; i++){
+            expect(consecutiveDucks(values_true[i])).toEqual(true)
+        }
+    })
+    it("Should return false if num cannot be expressed as a sum of two or more consecutive positive numbers", ()=>{
+        for(let i = 0; i < values_false.length; i++){
+            expect(consecutiveDucks(values_false[i])).toEqual(false)
+        }
+    })
+})
+
+describe("Break camelCase", ()=>{
+    it("Should be a function", ()=>{
+        expect(typeof breakCamelCase).toEqual("function")
+    })
+    it("Should add a space between a lowercased letter and a uppercased letter", ()=>{
+        expect(breakCamelCase("camelCase")).toEqual("camel Case");
+        expect(breakCamelCase("camelCasingTest")).toEqual("camel Casing Test");
+    })
+})
