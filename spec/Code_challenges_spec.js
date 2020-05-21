@@ -161,3 +161,17 @@ describe("GoodvsEvil", ()=>{
         expect(goodVsEvil('1 0 0 0 0 0', '1 0 0 0 0 0 0')).toEqual("Battle Result: No victor on this battle field");
     })
 })
+
+describe("Count characters in your string", ()=>{
+    it("Should be a function", ()=>{
+        expect(typeof count).toEqual("function")
+    })
+    it("Should return an empty object literal if empty string", ()=>{
+        expect(count("")).toEqual({})
+    })
+    it("Should return the number of each character", ()=>{
+        expect(count("a")).toEqual({a:1});
+        expect(count("aba")).toEqual({a:2,b:1});
+        expect(count("aabbbbaasdsadaa")).toEqual({a:7,b:4,s:2,d:2});
+    })
+})

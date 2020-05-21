@@ -351,8 +351,29 @@ function goodVsEvil(good,evil){
     for(let i=0; i<worth.el.length; i++){
         evilWorth += (worth.el[i]*evilNmbr[i])
     }
-    
+
     if(goodWorth > evilWorth) return `Battle Result: Good triumphs over Evil`
     if(goodWorth < evilWorth) return `Battle Result: Evil eradicates all trace of Good`
     if(goodWorth === evilWorth) return `Battle Result: No victor on this battle field`
+}
+
+//*Count characters in your string
+
+// The main idea is to count all the occurring characters(UTF-8) in string. 
+// If you have string like this aba then the result should be { 'a': 2, 'b': 1 }
+
+// What if the string is empty ? Then the result should be empty object literal { }
+
+function count(string){
+    let res = {};
+    if(string === "") return {}
+    for(let i = 0; i< string.length; i++){
+        let char = string.charAt(i);
+        if(!res.hasOwnProperty(char)){
+            res[char] = 1;
+        }else{
+            res[char] += 1;
+        }
+    }
+    return res
 }
