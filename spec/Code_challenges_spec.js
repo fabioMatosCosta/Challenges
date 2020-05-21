@@ -150,3 +150,14 @@ describe("Categorize New Member", ()=>{
         expect(openOrSenior(handicap3)).toEqual(category3);
     })
 })
+
+describe("GoodvsEvil", ()=>{
+    it("Should be a function", ()=>{
+        expect(typeof goodVsEvil).toEqual("function")
+    })
+    it("should return the battle result", ()=>{
+        expect(goodVsEvil('1 1 1 1 1 1', '1 1 1 1 1 1 1')).toEqual("Battle Result: Evil eradicates all trace of Good");
+        expect(goodVsEvil('0 0 0 0 0 10', '0 1 1 1 1 0 0')).toEqual("Battle Result: Good triumphs over Evil");
+        expect(goodVsEvil('1 0 0 0 0 0', '1 0 0 0 0 0 0')).toEqual("Battle Result: No victor on this battle field");
+    })
+})
