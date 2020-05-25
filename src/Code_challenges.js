@@ -393,3 +393,46 @@ function createPhoneNumber(numbers){
     if(numbers.length !== 10) return "need 10 numbers"
     return `(${numbers[0]}${numbers[1]}${numbers[2]}) ${numbers[3]}${numbers[4]}${numbers[5]}-${numbers[6]}${numbers[7]}${numbers[8]}${numbers[9]}`
 }
+
+//*Pick peaks
+
+// In this kata, you will write a function that returns the positions and the values of the "peaks" (or local maxima) of a numeric array.
+
+// For example, the array arr = [0, 1, 2, 5, 1, 0] has a peak at position 3 with a value of 5 (since arr[3] equals 5).
+
+// The output will be returned as an object with two properties: pos and peaks. Both of these properties should be arrays. 
+// If there is no peak in the given array, then the output should be {pos: [], peaks: []}.
+
+// Example: pickPeaks([3, 2, 3, 6, 4, 1, 2, 3, 2, 1, 2, 3]) should return {pos: [3, 7], peaks: [6, 3]} (or equivalent in other languages)
+
+// All input arrays will be valid integer arrays (although it could still be empty), so you won't need to validate the input.
+
+// The first and last elements of the array will not be considered as peaks (in the context of a mathematical function, 
+//     we don't know what is after and before and therefore, we don't know if it is a peak or not).
+
+// Also, beware of plateaus !!! [1, 2, 2, 2, 1] has a peak while [1, 2, 2, 2, 3] does not. In case of a plateau-peak,
+//  please only return the position and value of the beginning of the plateau. For example: pickPeaks([1, 2, 2, 2, 1]) returns {pos: [1], peaks: [2]} 
+
+function pickPeaks(arr){
+    if(arr.length === 0) return {pos:[],peaks:[]}
+    let pos = [];
+    let peaks = [];
+    for(let i = 1; i< arr.length ; i++){
+        let a = arr[i+1]-arr[i]
+        let b = arr[i+2]-arr[i+1]
+        console.log(`a:${a} b:${b}`)
+        if( a <= 0 && b <= 0){
+            pos.push(i)
+            peaks.push(arr[i])
+        }
+    }
+    for(i = 0; i< peaks.length; i++){
+        debugger
+        if(peaks[i]===peaks[i+1]){
+            peaks.splice(i+1, 1)
+            pos.splice(i+1, 1)
+        }
+    }
+    console.log("pos",pos, "peaks",peaks)
+    return {"pos":pos, "peaks":peaks}
+}
