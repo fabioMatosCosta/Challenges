@@ -175,3 +175,16 @@ describe("Count characters in your string", ()=>{
         expect(count("aabbbbaasdsadaa")).toEqual({a:7,b:4,s:2,d:2});
     })
 })
+
+describe("Create Phone Number", ()=>{
+    it("Should be a function", ()=>{
+        expect(typeof createPhoneNumber).toEqual("function")
+    })
+    it("should receive an array of 10 elements as an argument", ()=>{
+        expect(createPhoneNumber([1,2,3])).toEqual("need 10 numbers");
+    })
+    it("Should return a formatted phone number", ()=>{
+        expect(createPhoneNumber([1,2,3,4,5,6,7,8,9,0])).toEqual("(123) 456-7890")
+        expect(createPhoneNumber([1,1,1,1,1,1,1,1,1,1])).toEqual("(111) 111-1111")
+    })
+})
