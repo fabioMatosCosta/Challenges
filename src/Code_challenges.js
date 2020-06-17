@@ -427,12 +427,143 @@ function pickPeaks(arr){
         }
     }
     for(i = 0; i< peaks.length; i++){
-        debugger
+        // debugger
         if(peaks[i]===peaks[i+1]){
             peaks.splice(i+1, 1)
             pos.splice(i+1, 1)
         }
     }
-    console.log("pos",pos, "peaks",peaks)
     return {"pos":pos, "peaks":peaks}
+} // not finished yet
+
+
+// Deletable prime :
+
+
+// function delOneNumber(str){
+//     let newNumArr =[]
+//     for(let i=0; i<strNum.length; i++){
+//         let newNum = strNum.substring(0, i) + strNum.substring(i+1, strNum.length)
+//         let counterPrime = 0;
+//         for(let i = 2; i<newNum; i++){
+//             if(newNum%i === 0){
+//                 counterPrime++
+//             }
+//         }
+//         if(counterPrime === 0){
+//             newNumArr.push(newNum)
+//         }
+//     }
+//     return newNumArr;
+// }
+
+// function verify(arr){
+//     if(arr.length === 0){
+//         return 0
+//     }else{
+//         for(i=0; i<arr.length; i++){
+//             let newArr = delOneNumber(arr[i])
+//             console.log(newArr)
+//         }
+//     }
+// }
+
+function delPrime(num){
+    
+    let strNum = ""
+    if(typeof num === 'string'){
+        strNum = num
+    }else{
+        strNum = num.toString()
+    }
+
+    function delNum (str) {
+        arr = []
+        for(let i=0; i<str.length; i++){
+            let newNum = str.substring(0, i) + str.substring(i+1, str.length)
+            arr.push(newNum)
+        }
+        return arr
+    }
+
+    function verifyPrime(num){
+        let counterPrime = 0;
+        for(let i = 2; i<num; i++){
+            if(num%i === 0){
+                counterPrime++
+            }
+        }
+        if(counterPrime === 0){
+            return num
+        }
+    }
+
+    function verifyArrPrime (arr){
+        let primeArr = []
+        for(let i = 0; i<arr.length; i++){
+            if(verifyPrime(arr[i])){
+                primeArr.push(verifyPrime(arr[i]))
+            }
+        }
+        return primeArr
+    }   
+
+ 
+    let cntr = 0;
+    function transformArr(arr){
+        if(arr.length !== 0) {
+            let newArr = []
+            debugger
+            arr.map((el)=>{
+                if(typeof el === 'object'){
+                    transformArr(el)
+                    cntr++
+                }else{
+                    newArr.push(el)
+                }
+            })
+            console.log(cntr)
+            return cntr
+        }
+    }
+
+    let a = transformArr(verifyArrPrime(delNum(strNum)))
+    console.log(a)
+    // function delOneNumber(str){
+    //     let newNumArr =[]
+    //     for(let i=0; i<str.length; i++){
+    //         let newNum = str.substring(0, i) + str.substring(i+1, str.length)
+    //         let counterPrime = 0;
+    //         for(let i = 2; i<newNum; i++){
+    //             if(newNum%i === 0){
+    //                 counterPrime++
+    //             }
+    //         }
+    //         if(counterPrime === 0){
+    //             newNumArr.push(newNum)
+    //         }
+    //     }
+    //     return newNumArr;
+    // }
+
+    // let arr = delOneNumber(strNum)
+
+    // function verify(arr){
+    //     let rtrArr = []
+    //     if(arr.length === 0){
+    //         return []
+    //     }else{
+    //         for(i=0; i<arr.length; i++){
+    //             let newArr = delOneNumber(arr[i])
+    //             if(newArr.length !== 0){
+    //                 rtrArr.push(newArr)
+    //             }
+    //         }
+    //     }
+
+    //     console.log(rtrArr.toString())
+    //     return rtrArr
+    // }
+
+    
 }
